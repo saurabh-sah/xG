@@ -1,0 +1,54 @@
+{
+  "features": {
+    "numeric": [
+      "distance_to_goal",
+      "shot_angle_rad",
+      "minute",
+      "score_diff_before_shot",
+      "n_opponents_in_cone",
+      "n_opponents_total",
+      "nearest_opponent_dist",
+      "gk_dist_to_goal_center",
+      "gk_dist_from_shot_line"
+    ],
+    "categorical": [
+      "body_part",
+      "technique",
+      "shot_type",
+      "play_pattern"
+    ],
+    "boolean": [
+      "under_pressure",
+      "first_time",
+      "open_goal",
+      "deflected",
+      "aerial_won",
+      "follows_dribble"
+    ]
+  },
+  "results": {
+    "Baseline LR (distance+angle only)": {
+      "auc": 0.7065268893627102,
+      "log_loss": 0.24798081263083485,
+      "brier": 0.06655006117672205
+    },
+    "Logistic Regression (full features)": {
+      "auc": 0.7939300098148713,
+      "log_loss": 0.2238895639897883,
+      "brier": 0.061354359052437496
+    },
+    "XGBoost (full features)": {
+      "auc": 0.7737756794259993,
+      "log_loss": 0.23263271244922273,
+      "brier": 0.06386993080377579
+    },
+    "StatsBomb proprietary xG (benchmark)": {
+      "auc": 0.7867423088638441,
+      "log_loss": 0.22511228927281637,
+      "brier": 0.061542100704847655
+    }
+  },
+  "train_shots": 6745,
+  "test_shots": 1304,
+  "test_tournament": "UEFA Euro 2024 (held out entirely from training)"
+}
